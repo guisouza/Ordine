@@ -36,7 +36,7 @@ var Queue = function(params){
     this.loop(index,this.runContext)
 
   }
-  this.finish = function(){
+  this.next = function(){
     this.completedProcesses+=1;
     if (this.completedProcesses == this.processes.length){
       this.callback.call(this.context)
