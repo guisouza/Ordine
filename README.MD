@@ -55,9 +55,13 @@ var myQueue = new Queue(function(){
 
 ```
 ##Enqueue arguments : 
+
   ###proccess(function):
+  
 Asynchronous stuff.
+
   ###sync(boolean): 
+  
 This argument have to be the answer for the question : "This process will wait the previous process end to be executed"
 
 
