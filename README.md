@@ -29,13 +29,13 @@ var myQueue = new Queue(function(){
 
 
 ## Constructor arguments : 
-  ###callback(function):
+  ### callback(function):
 This the only required argument which is the callback for the queue.
-  ###context(object):
+  ### context(object):
 The context argument is the context in which the Callbacks will be executed.
 
 
-## Enqueue method : 
+##Enqueue method : 
 
 ```javascript
 var myQueue = new Queue(function(){
@@ -55,7 +55,7 @@ var myQueue = new Queue(function(){
 
 ```
 
-## Enqueue arguments : 
+## Enqueue arguments :
 
   ### proccess(function):
   
