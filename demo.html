@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="queue.js"></script>
+	<script>
+
+		fila = new Queue(function(){
+				// console.log('finished');
+		})
+		.enqueue(function(){
+			window.setTimeout(function(){
+				console.log('first')
+				fila.finish()
+			},1000);
+		},true)
+
+		.enqueue(function(){
+			window.setTimeout(function(){
+				console.log('second')
+				fila.finish()
+			},1000);
+		},false)
+
+		.enqueue(function(){
+			window.setTimeout(function(){
+				console.log('third')
+				fila.finish()
+			},1000);
+		},true)
+
+		.run()
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
