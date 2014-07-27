@@ -28,14 +28,14 @@ var myQueue = new Queue(function(){
 ```
 
 
-## Constructor arguments : 
-  ### callback(function):
+# Constructor arguments : 
+  __callback(function):__
 This the only required argument which is the callback for the queue.
-  ### context(object):
+  __context(object):__
 The context argument is the context in which the Callbacks will be executed.
 
 
-##Enqueue method : 
+#Enqueue method : 
 
 ```javascript
 var myQueue = new Queue(function(){
@@ -55,17 +55,17 @@ var myQueue = new Queue(function(){
 
 ```
 
-## Enqueue arguments :
+# Enqueue arguments :
 
-  ### proccess(function):
+  __Proccess(function):__
   
 Asynchronous stuff.
 
-  ### sync(boolean): 
+  __Sync(boolean):__
   
 This argument have to be the answer for the question : "This process will wait the previous process end to be executed"
 
 
-## Run Method : 
+# Run Method : 
 
 The run method trigger the queue execution.
