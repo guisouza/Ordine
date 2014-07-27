@@ -4,7 +4,6 @@
 
 var Queue = function(params){
 
-  this.autoExec = (params.autoExec) ? params.autoExec : false;
   this.callback = (params.callback) ? params.callback : function(){console.log('Queue Finish')};
   this.context  = (params.context)  ? params.context  : this;
   this.processes = []
