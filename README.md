@@ -45,7 +45,7 @@ var myQueue = new Queue(function(){
 .enqueue(function(){
   window.setTimeout(function(){
     myQueue.next()
-  },1000);
+  },1000)}
   
 .enqueue(function(){
   window.setTimeout(function(){
