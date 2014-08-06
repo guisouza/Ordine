@@ -6,9 +6,11 @@
 	<script src="queue.js"></script>
 	<script>
 
-		var myQueue = new Queue(function(){
-				console.log('finished');
+
+		var myQueue = new Queue({
+			callback:function(){console.log(this.a)}
 		})
+	})
 		.enqueue(function(){
 			window.setTimeout(function(){
 				console.log('first')
@@ -21,7 +23,7 @@
 				console.log('second')
 				myQueue.next()
 			},1000);
-		},true)
+		},false)
 
 		.enqueue(function(){
 			window.setTimeout(function(){
@@ -31,6 +33,10 @@
 		},true)
 		.run()
 	</script>
+
+<h1>{{titulo}}</h1>
+
+
 </head>
 <body>
 	
