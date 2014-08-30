@@ -3,15 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<script src="queue.js"></script>
+	<script src="dist/queue.min.js"></script>
 	<script>
 
-
 		var myQueue = new Queue({
-			callback:function(){console.log(this.a)}
+			callback:function(){console.log('uh!?')}
 		})
-	})
 		.enqueue(function(){
+
 			window.setTimeout(function(){
 				console.log('first')
 				myQueue.next()
@@ -21,9 +20,9 @@
 		.enqueue(function(){
 			window.setTimeout(function(){
 				console.log('second')
-				myQueue.next()
+				myQueue.resume(1)
 			},1000);
-		},false)
+		},true)
 
 		.enqueue(function(){
 			window.setTimeout(function(){
@@ -33,10 +32,6 @@
 		},true)
 		.run()
 	</script>
-
-<h1>{{titulo}}</h1>
-
-
 </head>
 <body>
 	
