@@ -13,45 +13,46 @@ Constructor :
 ======
 
 ```javascript
-//Full construction
-var myQueue = new Queue({
-  callback : function(){
-    console.log('finished');
-  },
-  context : this
-})
-
-//Passing only the callback
-var myQueue = new Queue(function(){
-  console.log('finished');
-})
+    var myQueue = new Queue(function(){
+      console.log('uh!?')
+    })
 ```
 
 
 # Constructor arguments : 
   __callback(function):__
 This the only required argument which is the callback for the queue.
-  __context(object):__
-The context argument is the context in which the Callbacks will be executed.
 
 
 #Enqueue method : 
 
 ```javascript
-var myQueue = new Queue(function(){
-  console.log('finished');
-})
 
-.enqueue(function(){
-  window.setTimeout(function(){
-    myQueue.next()
-  },1000)}
-  
-.enqueue(function(){
-  window.setTimeout(function(){
-    myQueue.next()
-  },1000);
-},false)
+    var myQueue = new Queue(function(){
+      console.log('uh!?')
+    })
+    .enqueue(function(){
+
+      window.setTimeout(function(){
+        console.log('first')
+        myQueue.next()
+      },1000);
+    })
+
+    .enqueue(function(){
+      window.setTimeout(function(){
+        console.log('second')
+        myQueue.next()
+      },1000);
+    },false)
+
+    .enqueue(function(){
+      window.setTimeout(function(){
+        console.log('third')
+        myQueue.next()
+      },1000);
+    },true)
+    .run()
 
 ```
 

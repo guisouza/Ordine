@@ -3,11 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<script src="dist/queue.min.js"></script>
+	<script src="dist/ordine.min.js"></script>
 	<script>
 
-		var myQueue = new Queue({
-			callback:function(){console.log('uh!?')}
+		var myQueue = new Queue(function(){
+			console.log('uh!?')
 		})
 		.enqueue(function(){
 
@@ -20,7 +20,7 @@
 		.enqueue(function(){
 			window.setTimeout(function(){
 				console.log('second')
-				myQueue.resume(1)
+				myQueue.next()
 			},1000);
 		},true)
 
