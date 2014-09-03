@@ -1,0 +1,35 @@
+{
+  "name": "ordine",
+  "version": "0.0.5",
+  "description": "Callbacks made almost easy.",
+  "main": "dist/ordine.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guisouza/Ordine.git"
+  },
+  "keywords": [
+    "callbacks",
+    "queue",
+    "proccess",
+    "promisses"
+  ],
+  "author": "Guilherme (Coder)",
+  "license": "Beerware",
+  "bugs": {
+    "url": "https://github.com/guisouza/Ordine/issues"
+  },
+  "homepage": "https://github.com/guisouza/Ordine",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-jasmine": "^0.7.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-uglify": "^0.5.1"
+  }
+}
