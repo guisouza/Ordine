@@ -7,7 +7,7 @@
     }
 
   	if (this.waiting.shoudI){
-      if (this.waiting.process == this.completedprocs){
+      if (this.waiting.proc == this.completedprocs){
         this.waiting.shoudI = false;
         this.resume();
       }
