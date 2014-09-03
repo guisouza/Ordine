@@ -1,32 +1,32 @@
-;(function(Queue) {
-  Queue.prototype.loop = function(untill){
+;(function(Ordine) {
+  Ordine.prototype.loop = function(untill){
     if (!untill){
       untill = 0;
-      for(var proccess in this.processes){
+      for(var procc in this.procs){
         if (!this.waiting.shoudI){
-          if (this.processes[proccess].wait){
+          if (this.procs[procc].wait){
             this.waiting = {
               shoudI : true,
-              process : proccess
+              proc : procc
             };
           }else{
-            this.processes[proccess].process();
+            this.procs[procc].proc();
           }
         }
       }
     }else{
-      for(var _proccess in this.processes){
-        if (_proccess >= this.waiting.process){
-          if (_proccess === this.waiting.process){
-            this.processes[_proccess].process();
+      for(var _procc in this.procs){
+        if (_procc >= this.waiting.proc){
+          if (_procc === this.waiting.proc){
+            this.procs[_procc].proc();
           }else{
-            if (this.processes[_proccess].wait){
+            if (this.procs[_procc].wait){
               this.waiting = {
                 shoudI : true,
-                process : _proccess
+                proc : _procc
               };
             }else{
-              this.processes[_proccess].process();
+              this.procs[_procc].proc();
             }
           }
         }
@@ -34,4 +34,4 @@
     }
   };
 
-} (this.Queue));
+} (this.Ordine));

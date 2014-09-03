@@ -1,6 +1,6 @@
-;(function(Queue) {
-  Queue.prototype.resume = function(){
-		this.loop(this.waiting.process);
+;(function(Ordine) {
+  Ordine.prototype.resume = function(){
+		this.loop(this.waiting.proc);
   };
 
-} (this.Queue));
+} (this.Ordine));

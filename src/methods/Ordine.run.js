@@ -1,8 +1,9 @@
-;(function(Queue) {
+;(function(Ordine) {
 
-  Queue.prototype.run = function(){
+  Ordine.prototype.run = function(){
+  	console.log('run');
   	this.loop();
     return this;
   };
 
-} (this.Queue));
+} (this.Ordine));

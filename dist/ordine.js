@@ -3,10 +3,10 @@
 ;(function(world){
   'use strict';
 
-  var Queue = function(params){
+  var Ordine = function(params){
     this.finalCallback = params.callback || false;
-    this.processes = [];
-    this.completedProcesses = 0;
+    this.procs = [];
+    this.completedprocs = 0;
     this.waiting = false;
 
     if (typeof params == 'function'){
@@ -15,17 +15,28 @@
     return this;
   };
 
-  world.Queue = Queue;
+  if( typeof exports !== 'undefined' ) {
+    if( typeof module !== 'undefined' && module.exports ) {
+      exports = module.exports = Ordine;
+    }
+    module.exports = Ordine;
+  } 
+  else {
+    world.Ordine = Ordine;
+  }
+
+
+  
 })(this);
 // Cycle Icon designed by Nick Remis - http://www.thenounproject.com/nremis/
 
 ;(function(world){
   'use strict';
 
-  var Queue = function(params){
+  var Ordine = function(params){
     this.finalCallback = params.callback || false;
-    this.processes = [];
-    this.completedProcesses = 0;
+    this.procs = [];
+    this.completedprocs = 0;
     this.waiting = false;
 
     if (typeof params == 'function'){
@@ -34,47 +45,58 @@
     return this;
   };
 
-  world.Queue = Queue;
+  if( typeof exports !== 'undefined' ) {
+    if( typeof module !== 'undefined' && module.exports ) {
+      exports = module.exports = Ordine;
+    }
+    module.exports = Ordine;
+  } 
+  else {
+    world.Ordine = Ordine;
+  }
+
+
+  
 })(this);
-;(function(Queue) {
-  Queue.prototype.enqueue = function(proccess,waitPrevious){
-  	this.processes.push({
-      process : proccess,
+;(function(Ordine) {
+  Ordine.prototype.enqueue = function(procc,waitPrevious){
+  	this.procs.push({
+      proc : procc,
       wait : waitPrevious || false
     });
     return this;
   };
 
-} (this.Queue));
-;(function(Queue) {
-  Queue.prototype.loop = function(untill){
+} (this.Ordine));
+;(function(Ordine) {
+  Ordine.prototype.loop = function(untill){
     if (!untill){
       untill = 0;
-      for(var proccess in this.processes){
+      for(var procc in this.procs){
         if (!this.waiting.shoudI){
-          if (this.processes[proccess].wait){
+          if (this.procs[procc].wait){
             this.waiting = {
               shoudI : true,
-              process : proccess
+              proc : procc
             };
           }else{
-            this.processes[proccess].process();
+            this.procs[procc].proc();
           }
         }
       }
     }else{
-      for(var _proccess in this.processes){
-        if (_proccess >= this.waiting.process){
-          if (_proccess === this.waiting.process){
-            this.processes[_proccess].process();
+      for(var _procc in this.procs){
+        if (_procc >= this.waiting.proc){
+          if (_procc === this.waiting.proc){
+            this.procs[_procc].proc();
           }else{
-            if (this.processes[_proccess].wait){
+            if (this.procs[_procc].wait){
               this.waiting = {
                 shoudI : true,
-                process : _proccess
+                proc : _procc
               };
             }else{
-              this.processes[_proccess].process();
+              this.procs[_procc].proc();
             }
           }
         }
@@ -82,35 +104,36 @@
     }
   };
 
-} (this.Queue));
-;(function(Queue) {
-  Queue.prototype.next = function(){
-    this.completedProcesses +=1;
+} (this.Ordine));
+;(function(Ordine) {
+  Ordine.prototype.next = function(){
+    this.completedprocs +=1;
 
-    if (this.processes.length === this.completedProcesses){
+    if (this.procs.length === this.completedprocs){
     	this.finalCallback();
     }
 
   	if (this.waiting.shoudI){
-      if (this.waiting.process == this.completedProcesses){
+      if (this.waiting.process == this.completedprocs){
         this.waiting.shoudI = false;
         this.resume();
       }
     }
   };
 
-} (this.Queue));
-;(function(Queue) {
-  Queue.prototype.resume = function(){
-		this.loop(this.waiting.process);
+} (this.Ordine));
+;(function(Ordine) {
+  Ordine.prototype.resume = function(){
+		this.loop(this.waiting.proc);
   };
 
-} (this.Queue));
-;(function(Queue) {
+} (this.Ordine));
+;(function(Ordine) {
 
-  Queue.prototype.run = function(){
+  Ordine.prototype.run = function(){
+  	console.log('run');
   	this.loop();
     return this;
   };
 
-} (this.Queue));
+} (this.Ordine));

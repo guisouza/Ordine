@@ -3,10 +3,10 @@
 ;(function(world){
   'use strict';
 
-  var Queue = function(params){
+  var Ordine = function(params){
     this.finalCallback = params.callback || false;
-    this.processes = [];
-    this.completedProcesses = 0;
+    this.procs = [];
+    this.completedprocs = 0;
     this.waiting = false;
 
     if (typeof params == 'function'){
@@ -15,5 +15,16 @@
     return this;
   };
 
-  world.Queue = Queue;
+  if( typeof exports !== 'undefined' ) {
+    if( typeof module !== 'undefined' && module.exports ) {
+      exports = module.exports = Ordine;
+    }
+    module.exports = Ordine;
+  } 
+  else {
+    world.Ordine = Ordine;
+  }
+
+
+  
 })(this);

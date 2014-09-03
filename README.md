@@ -1,7 +1,4 @@
 
-
-
-
 ![alt text](http://i.imgur.com/2grQz3L.png "Ordine")
 
 Callbacks made almost easy

@@ -1,10 +1,10 @@
-;(function(Queue) {
-  Queue.prototype.enqueue = function(proccess,waitPrevious){
-  	this.processes.push({
-      process : proccess,
+;(function(Ordine) {
+  Ordine.prototype.enqueue = function(procc,waitPrevious){
+  	this.procs.push({
+      proc : procc,
       wait : waitPrevious || false
     });
     return this;
   };
 
-} (this.Queue));
+} (this.Ordine));

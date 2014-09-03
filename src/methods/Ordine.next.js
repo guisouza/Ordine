@@ -1,17 +1,17 @@
-;(function(Queue) {
-  Queue.prototype.next = function(){
-    this.completedProcesses +=1;
+;(function(Ordine) {
+  Ordine.prototype.next = function(){
+    this.completedprocs +=1;
 
-    if (this.processes.length === this.completedProcesses){
+    if (this.procs.length === this.completedprocs){
     	this.finalCallback();
     }
 
   	if (this.waiting.shoudI){
-      if (this.waiting.process == this.completedProcesses){
+      if (this.waiting.process == this.completedprocs){
         this.waiting.shoudI = false;
         this.resume();
       }
     }
   };
 
-} (this.Queue));
+} (this.Ordine));
