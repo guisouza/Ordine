@@ -3,11 +3,15 @@
 ;(function(world){
   'use strict';
 
+
+
   var Ordine = function(params){
     this.finalCallback = params.callback || false;
     this.procs = [];
     this.completedprocs = 0;
-    this.waiting = false;
+    this.waiting = {
+      shoudI : false
+    };
 
     if (typeof params == 'function'){
       this.finalCallback = params;
@@ -42,43 +46,44 @@
 } (this.Ordine));
 ;(function(Ordine) {
   Ordine.prototype.loop = function(untill){
-    if (!untill){
-      untill = 0;
-      for(var procc in this.procs){
-        if (!this.waiting.shoudI){
-          if (this.procs[procc].wait){
-            this.waiting = {
-              shoudI : true,
-              proc : procc
-            };
-          }else{
-            this.procs[procc].proc();
-          }
-        }
-      }
-    }else{
-      for(var _procc in this.procs){
-        if (_procc >= this.waiting.proc){
-          if (_procc === this.waiting.proc){
-            this.procs[_procc].proc();
-          }else{
-            if (this.procs[_procc].wait){
-              this.waiting = {
-                shoudI : true,
-                proc : _procc
-              };
+
+    for (var proc in this.procs){
+
+
+      if (proc >= this.completedprocs){
+        if (this.waiting.shoudI === false){
+
+          if (!untill){
+            if (this.procs[proc].wait){
+              this.waiting.shoudI = true;
+              this.waiting.proc = proc;
             }else{
-              this.procs[_procc].proc();
+              this.procs[proc].proc();
             }
+
+          }else{
+            if (proc == untill){
+              this.procs[proc].proc();
+            }else{
+              if (this.procs[proc].wait){
+                this.waiting.shoudI = true;
+                this.waiting.proc = proc;
+              }else{
+                this.procs[proc].proc();
+              }
+            }
+
           }
+
+
         }
       }
     }
   };
-
 } (this.Ordine));
 ;(function(Ordine) {
   Ordine.prototype.next = function(){
+
     this.completedprocs +=1;
 
     if (this.procs.length === this.completedprocs){
@@ -95,8 +100,8 @@
 
 } (this.Ordine));
 ;(function(Ordine) {
-  Ordine.prototype.resume = function(){
-		this.loop(this.waiting.proc);
+  Ordine.prototype.resume = function(){	
+		this.loop(this.completedprocs);
   };
 
 } (this.Ordine));

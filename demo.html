@@ -12,25 +12,42 @@
 		.enqueue(function(){
 
 			window.setTimeout(function(){
-				console.log('first')
+				console.log('>>>>>>>>first')
 				myQueue.next()
 			},1000);
 		})
 
 		.enqueue(function(){
 			window.setTimeout(function(){
-				console.log('second')
+				console.log('>>>>>>>>second')
+				myQueue.next()
+			},1000);
+		},false)
+
+		
+		.enqueue(function(){
+			window.setTimeout(function(){
+				console.log('>>>>>>>>third')
+				myQueue.next()
+			},1000);
+		},true)
+
+		.enqueue(function(){
+			window.setTimeout(function(){
+				console.log('>>>>>>>>fourth')
 				myQueue.next()
 			},1000);
 		},false)
 
 		.enqueue(function(){
 			window.setTimeout(function(){
-				console.log('third')
+				console.log('>>>>>>>>third')
 				myQueue.next()
 			},1000);
 		},true)
-		.run()
+		
+
+		myQueue.run()
 	</script>
 </head>
 <body>

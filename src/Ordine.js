@@ -3,11 +3,15 @@
 ;(function(world){
   'use strict';
 
+
+
   var Ordine = function(params){
     this.finalCallback = params.callback || false;
     this.procs = [];
     this.completedprocs = 0;
-    this.waiting = false;
+    this.waiting = {
+      shoudI : false
+    };
 
     if (typeof params == 'function'){
       this.finalCallback = params;
