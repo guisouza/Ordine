@@ -5,16 +5,18 @@
 
 
 
-  var Ordine = function(params){
-    this.finalCallback = params.callback || false;
+  var Ordine = function(params,error){
+    this.success = params.success || false;
+    this.error = params.error || false;
     this.procs = [];
     this.completedprocs = 0;
     this.waiting = {
-      shoudI : false
+      shouldI : false
     };
 
     if (typeof params == 'function'){
-      this.finalCallback = params;
+      this.success = params;
+      this.error = error || false;
     }
     return this;
   };

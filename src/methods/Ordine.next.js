@@ -4,12 +4,12 @@
     this.completedprocs +=1;
 
     if (this.procs.length === this.completedprocs){
-    	this.finalCallback();
+    	this.success();
     }
 
-  	if (this.waiting.shoudI){
+  	if (this.waiting.shouldI){
       if (this.waiting.proc == this.completedprocs){
-        this.waiting.shoudI = false;
+        this.waiting.shouldI = false;
         this.resume();
       }
     }

@@ -5,11 +5,11 @@
 
 
       if (proc >= this.completedprocs){
-        if (this.waiting.shoudI === false){
+        if (this.waiting.shouldI === false){
 
           if (!untill){
             if (this.procs[proc].wait){
-              this.waiting.shoudI = true;
+              this.waiting.shouldI = true;
               this.waiting.proc = proc;
             }else{
               this.procs[proc].proc();
@@ -20,7 +20,7 @@
               this.procs[proc].proc();
             }else{
               if (this.procs[proc].wait){
-                this.waiting.shoudI = true;
+                this.waiting.shouldI = true;
                 this.waiting.proc = proc;
               }else{
                 this.procs[proc].proc();

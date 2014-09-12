@@ -5,16 +5,18 @@
 
 
 
-  var Ordine = function(params){
-    this.finalCallback = params.callback || false;
+  var Ordine = function(params,error){
+    this.success = params.success || false;
+    this.error = params.error || false;
     this.procs = [];
     this.completedprocs = 0;
     this.waiting = {
-      shoudI : false
+      shouldI : false
     };
 
     if (typeof params == 'function'){
-      this.finalCallback = params;
+      this.success = params;
+      this.error = error || false;
     }
     return this;
   };
@@ -51,11 +53,11 @@
 
 
       if (proc >= this.completedprocs){
-        if (this.waiting.shoudI === false){
+        if (this.waiting.shouldI === false){
 
           if (!untill){
             if (this.procs[proc].wait){
-              this.waiting.shoudI = true;
+              this.waiting.shouldI = true;
               this.waiting.proc = proc;
             }else{
               this.procs[proc].proc();
@@ -66,7 +68,7 @@
               this.procs[proc].proc();
             }else{
               if (this.procs[proc].wait){
-                this.waiting.shoudI = true;
+                this.waiting.shouldI = true;
                 this.waiting.proc = proc;
               }else{
                 this.procs[proc].proc();
@@ -87,12 +89,12 @@
     this.completedprocs +=1;
 
     if (this.procs.length === this.completedprocs){
-    	this.finalCallback();
+    	this.success();
     }
 
-  	if (this.waiting.shoudI){
+  	if (this.waiting.shouldI){
       if (this.waiting.proc == this.completedprocs){
-        this.waiting.shoudI = false;
+        this.waiting.shouldI = false;
         this.resume();
       }
     }

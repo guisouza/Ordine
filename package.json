@@ -1,6 +1,6 @@
 {
   "name": "ordine",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Callbacks made almost easy.",
   "main": "dist/ordine.js",
   "scripts": {
