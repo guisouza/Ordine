@@ -6,49 +6,56 @@
 	<script src="dist/ordine.js"></script>
 	<script>
 
+
+
+		var api1,api2,resultado
+
 		var myQueue = new Ordine(function(){
-			console.log('uh!?')
+			console.log('3')
+			resultado = api1+api2;
+			console.log(resultado)
 		})
 		.enqueue(function(){
-
+			console.log('1')
 			window.setTimeout(function(){
-				console.log('>>>>>>>>first')
+				api1 = 1
 				myQueue.next()
-			},1000);
+			},1200)
 		})
 
 		.enqueue(function(){
+			console.log('2')
 			window.setTimeout(function(){
-				console.log('>>>>>>>>second')
+				api2 = 3
 				myQueue.next()
-			},1000);
-		},false)
-
-		
-		.enqueue(function(){
-			window.setTimeout(function(){
-				console.log('>>>>>>>>third')
-				myQueue.next()
-			},1000);
+			},1000)
 		},true)
 
-		.enqueue(function(){
-			window.setTimeout(function(){
-				console.log('>>>>>>>>fourth')
-				myQueue.next()
-			},1000);
-		},false)
+		.run()
+		
+		// .enqueue(function(){
+		// 	window.setTimeout(function(){
+		// 		console.log('>>>>>>>>third')
+		// 		myQueue.next()
+		// 	},1000);
+		// },true)
 
-		.enqueue(function(){
-			window.setTimeout(function(){
-				console.log('>>>>>>>>fifth')
-				myQueue.next()
-			},1000);
-		},true)
+		// .enqueue(function(){
+		// 	window.setTimeout(function(){
+		// 		console.log('>>>>>>>>fourth')
+		// 		myQueue.next()
+		// 	},1000);
+		// },false)
+
+		// .enqueue(function(){
+		// 	window.setTimeout(function(){
+		// 		console.log('>>>>>>>>fifth')
+		// 		myQueue.next()
+		// 	},1000);
+		// },true)
 		
 
-		myQueue.run()
-
+		// myQueue.run()
 
 
 	</script>

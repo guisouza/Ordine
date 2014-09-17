@@ -67,3 +67,6 @@ This argument have to be the answer for the question : "This process will wait t
 # Run Method : 
 
 The run method trigger the queue execution.
+
+
+// Cycle Icon designed by Nick Remis - http://www.thenounproject.com/nremis/

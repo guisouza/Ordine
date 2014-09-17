@@ -1,9 +1,7 @@
 ;(function(Ordine) {
+  'use strict';
   Ordine.prototype.loop = function(untill){
-
     for (var proc in this.procs){
-
-
       if (proc >= this.completedprocs){
         if (this.waiting.shouldI === false){
 
@@ -14,7 +12,6 @@
             }else{
               this.procs[proc].proc();
             }
-
           }else{
             if (proc == untill){
               this.procs[proc].proc();
@@ -28,8 +25,6 @@
             }
 
           }
-
-
         }
       }
     }

@@ -1,10 +1,5 @@
-// Cycle Icon designed by Nick Remis - http://www.thenounproject.com/nremis/
-
 ;(function(world){
   'use strict';
-
-
-
   var Ordine = function(params,error){
     this.success = params.success || false;
     this.error = params.error || false;
@@ -28,7 +23,4 @@
     module.exports = Ordine;
   } 
  world.Ordine = Ordine;
-
-
-  
 })(this);

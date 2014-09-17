@@ -1,12 +1,10 @@
 ;(function(Ordine) {
+  'use strict';
   Ordine.prototype.next = function(){
-
     this.completedprocs +=1;
-
     if (this.procs.length === this.completedprocs){
     	this.success();
     }
-
   	if (this.waiting.shouldI){
       if (this.waiting.proc == this.completedprocs){
         this.waiting.shouldI = false;
