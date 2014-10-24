@@ -10,7 +10,7 @@ Constructor :
 ======
 
 ```javascript
-    var myQueue = new Queue(function(){
+    var myQueue = new Ordine(function(){
       console.log('uh!?')
     })
 ```
