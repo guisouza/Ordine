@@ -1,6 +1,6 @@
 {
   "name": "ordine",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "description": "Callbacks made almost easy.",
   "main": "dist/ordine.js",
   "scripts": {
@@ -22,8 +22,7 @@
     "url": "https://github.com/guisouza/Ordine/issues"
   },
   "homepage": "https://github.com/guisouza/Ordine",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-jshint": "^0.10.0",
