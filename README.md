@@ -6,7 +6,7 @@ Callbacks made almost easy
 Simple queue system to handle callbacks
 
 
-Constructor : 
+Constructor :
 ======
 
 ```javascript
@@ -16,16 +16,16 @@ Constructor :
 ```
 
 
-# Constructor arguments : 
+# Constructor arguments :
   __callback(function):__
 This the only required argument which is the callback for the queue.
 
 
-#Enqueue method : 
+#Enqueue method :
 
 ```javascript
 
-    var myQueue = new Queue(function(){
+    var myQueue = new Ordine(function(){
       console.log('uh!?')
     })
     .enqueue(function(){
@@ -56,15 +56,15 @@ This the only required argument which is the callback for the queue.
 # Enqueue arguments :
 
   __Proccess(function):__
-  
+
 Asynchronous stuff.
 
   __Sync(boolean):__
-  
+
 This argument have to be the answer for the question : "This process will wait the previous process end to be executed"
 
 
-# Run Method : 
+# Run Method :
 
 The run method trigger the queue execution.
 
