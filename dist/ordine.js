@@ -41,7 +41,7 @@
 } (this.Ordine));
 ;(function(Ordine) {
   'use strict';
-  Ordine.prototype.loop = function(untill){
+  Ordine.prototype.loop = function(untill,params){
     for (var proc in this.procs){
       if (proc >= this.completedprocs){
         if (this.waiting.shouldI === false){
@@ -51,17 +51,17 @@
               this.waiting.shouldI = true;
               this.waiting.proc = proc;
             }else{
-              this.procs[proc].proc();
+              this.procs[proc].proc(params);
             }
           }else{
             if (proc == untill){
-              this.procs[proc].proc();
+              this.procs[proc].proc(params);
             }else{
               if (this.procs[proc].wait){
                 this.waiting.shouldI = true;
                 this.waiting.proc = proc;
               }else{
-                this.procs[proc].proc();
+                this.procs[proc].proc(params);
               }
             }
 
@@ -71,28 +71,31 @@
     }
   };
 } (this.Ordine));
+
 ;(function(Ordine) {
   'use strict';
-  Ordine.prototype.next = function(){
+  Ordine.prototype.next = function(params){
     this.completedprocs +=1;
     if (this.procs.length === this.completedprocs){
-    	this.success();
+    	this.success(params);
     }
   	if (this.waiting.shouldI){
       if (this.waiting.proc == this.completedprocs){
         this.waiting.shouldI = false;
-        this.resume();
+        this.resume(params);
       }
     }
   };
 
 } (this.Ordine));
+
 ;(function(Ordine) {
 	'use strict';
-  Ordine.prototype.resume = function(){	
-		this.loop(this.completedprocs);
+  Ordine.prototype.resume = function(params){
+		this.loop(this.completedprocs,params);
   };
 } (this.Ordine));
+
 ;(function(Ordine) {
 	'use strict';
   Ordine.prototype.run = function(){
